@@ -6,7 +6,7 @@ The device is configurable through Azure IoT Hub.
 
 ![Sarah's project](https://github.com/Azure-Samples/ESP-Samples/blob/master/media/sarah_project.JPG)
 
-See the electric [schematic of the project](/PostureSensorSchematicLabeled.pdf).
+See the electric [schematic of the project](./PostureSensorSchematicLabeled.pdf).
 
 ## Contents
 
