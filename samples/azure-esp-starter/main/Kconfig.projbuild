@@ -1,0 +1,59 @@
+menu "ESP32 App Config"
+
+config WIFI_SSID
+    string "WiFi SSID"
+	default "myssid"
+	help
+		SSID (network name) for the example to connect to.
+
+config WIFI_PASSWORD
+    string "WiFi Password"
+	default "mypassword"
+	help
+		WiFi password (WPA or WPA2) for the example to use.
+
+		Can be left blank if the network has no security set.
+
+config WIFI_MAXIMUM_RETRY
+	int "Maximum Wifi Connection Retry"
+	default 5
+	help
+		Set the Maximum Retry to connect to desire WIFI Access Point
+
+config IOTHUB_CONNECTION_STRING
+	string "Azure IoT Hub Device Connection String"
+	default "azureiot.com"
+	help
+		help
+		String containing Hostname, Device Id & Device Key in the format:
+		HostName=<host_name>;DeviceId=<device_id>;SharedAccessKey=<device_key>
+		You can get this from the Azure IoT CLI or the Azure Portal.
+
+menu Button
+	config IOT_BUTTON_ENABLE
+		bool "Enable Button"
+		default y
+		help
+			Select to enable button
+
+	config BUTTON_USE_ESP_TIMER
+		bool "Use ESP Timer"
+		default y
+		
+	config IO_GLITCH_FILTER_TIME_MS
+		int "IO glitch filter timer ms (10~100)"
+		default 50
+		help
+			Please enter a decimal value. Fractions will not be accepted.  
+			Use the <TAB> key to move from the input field to the buttons below it. 
+
+	config IOT_DEBUG_ENABLE
+		bool "Enable IoT Debug"	
+
+	config IOT_LED_ENABLE
+		bool "Enable LED for Button"
+		default y
+
+endmenu
+
+endmenu

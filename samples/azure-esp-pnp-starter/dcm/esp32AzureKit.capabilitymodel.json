@@ -1,0 +1,18 @@
+{
+  "@id": "urn:pebj:esp32AzureKit:2",
+  "@type": "CapabilityModel",
+  "implements": [
+    {
+      "schema": "urn:pebj:interfaces:esp32AzureKit:1",
+      "name": "esp32AzureKit"
+      
+    },
+    {
+      "schema": "urn:azureiot:DeviceManagement:DeviceInformation:1",
+      "name": "urn_azureiot_DeviceManagement_DeviceInformation"
+    }
+  ],
+  "displayName": "esp32AzureKit", 
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
+  
+}

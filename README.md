@@ -1,59 +1,174 @@
 ---
 page_type: sample
-languages:
-- csharp
+languages: 
+- c
 products:
-- dotnet
-description: "Add 150 character max description"
-urlFragment: "update-this-to-unique-url-stub"
+- azure-iot
+- azure-iot-hub
+- azure-sdks
+name: "Azure IoT ESP Samples"
+description: "Azure IoT code samples to use with ESP boards"
+urlFragment: "Azure IoT ESP Samples"
 ---
 
-# Official Microsoft Sample
+# Samples for Espressif (ESP) Microcontrollers
 
-<!-- 
-Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
+### Introduction
+In this repository, you will find:
 
-Guidance on onboarding samples to docs.microsoft.com/samples: https://review.docs.microsoft.com/help/onboard/admin/samples/process/onboarding?branch=master
+1. Azure samples for Espressif boards located in the `samples` folder.
+1. Azure IoT SDK component for the ESP stable version located in the `components` folder. These components can be used in any ESP project which desire to connect to Azure IoT.
+ Two versions of the component is provided within this repo:
+	* Azure IoT SDK without PnP 
+	* Azure IoT SDK with PnP preview)
+>If you are beginner with Azure IoT or Espressif boards, please look at the **[Key Concepts](#key-concepts)** section below.
 
-Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
--->
+In addition to the current ESP32 and ESP8266 hardware offerings, Espressif now offers the [ESP32 Azure IoT Board](https://www.espressif.com/en/products/hardware/esp32-azure-kit), a development board which includes key sensors, OLED screen, and support for Wi-Fi & Bluetooth protocols. More information about this Azure certified board is available in the [Azure IoT catalog](https://catalog.azureiotsolutions.com/details?title=AzureKit-ESP32&source=all-devices-page).
 
-Give a short description for your sample here. What does it do and why is it important?
+>For any questions or suggestions, please open an issue and tag @ericmitt, @drajput, @tawalke
 
-## Contents
+### Table of Contents
+* [Prerequisites](#prerequisites) - Required items to run samples
+* [Installing Toolchain & Development Framework](#installing-toolchain-and-development-framework) - Dev environment setup
+* [Sample Setup](#setup-the-samples) - How to setup and run samples
+* [Key Concepts](#key-concepts) - Understand Azure IoT & ESP
+* [Contributing](#contributing) - How to contribute to repo
 
-Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
+## Samples available in this repository
 
-| File/folder       | Description                                |
-|-------------------|--------------------------------------------|
-| `src`             | Sample source code.                        |
-| `.gitignore`      | Define what to ignore at commit time.      |
-| `CHANGELOG.md`    | List of changes to the sample.             |
-| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
-| `README.md`       | This README file.                          |
-| `LICENSE`         | The license for the sample.                |
+Sample|Description
+---|---|
+[azure-esp-starter](./samples/azure-esp-starter)|Send telemetry data from the ESP32 Azure device to Azure IoT Hub
+[azure-esp-starter-pnp](./samples/azure-esp-pnp-starter)|Send telemetry data from ESP32 Azure device to Azure IoT Hub with Azure IoT Plug and Play
+[azure-esp8266-posturesensor](./samples/azure-esp8266-posturesensor)|Create a Posture Sensor ESP8266 device and send telemetry data and commands to/from to Azure IoT Hub *(Sample graciously provided from our Azure IoT Intern, [Sarah Rashid,@sarahrashid](https://github.com/sarahrashid))*
+
+The projects in the samples folder respects the folder structure specified by Espressif for ESP-IDF projects. See more information about ESP-IDF and the ESP-IDF build system in the [Key Concepts](#key-concepts) section.
 
 ## Prerequisites
 
-Outline the required components and tools that a user might need to have on their machine in order to run the sample. This can be anything from frameworks, SDKs, OS versions or IDE releases.
+1. **Azure subscription**: You will need an active Azure subscription. If you do not have one, you can register via one of these two methods:
+    - Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/free/).
+    - Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are MSDN or Visual Studio subscriber.
+1. **Azure IoT Hub**: An active Azure IoT Hub  
+3. **ESP32/ESP8266 device**: An Espressif development board which is registered in Azure IoT Hub as a device.
 
-## Setup
+>If you're not familiar with Azure IoT or need help setting up an Azure IoT Hub, please see **[Key Concepts](#key-concepts)** section.
 
-Explain how to prepare the sample once the user clones or downloads the repository. The section should outline every step necessary to install dependencies and set up any settings (for example, API keys and output folders).
+## Installing Toolchain and Development Framework
 
-## Running the sample
+To build and deploy a project on your ESP Board, you need to complete the following steps:
 
-Outline step-by-step instructions to execute the sample and see its output. Include steps for executing the sample from the IDE, starting specific services in the Azure portal or anything related to the overall launch of the code.
+* Install the ESP toolchain
+* Install the ESP development framework
+* Setup PATH for ESP environment
+
+Please follow the steps noted below for your operating system below to ensure your development environment is ready for ESP32 or ESP8266 development. 
+
+**Windows 10**
+
+Using Windows Subsystem Linux (WSL):
+
+*ESP32:*
+You can install the ESP32 toolchain and ESP-IDF on your windows machine using WSL. Start Windows Subsystem for Linux by typing `WSL` in your start menu and running [this setup script](./install-script/esp-setup.sh).
+
+*ESP8266:*
+When choosing to install the ESP8266 toolchain and SDK using WSL, you should start Windows Subsystem for Linux by typing `WSL` and run [this setup script](./install-script/esp-8266-setup.sh) instead.
+
+For instructions on running the setup scripts, please review details provided [here](./install-script/readme.md).
+*This is the recommended approach for novice ESP32 and ESP8266 developers using these samples.*
+
+>For more information on setting up WSL on Windows 10 [see how to setup WSL on Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+
+Using MSYS2 environment on Windows:
+
+You can install the ESP32 toolchain on your windows machine using the MSYS2 environemnts aka [MinGW](http://mingw.org/) on Windows. To install, follow the steps outlined in Espressif documentation for setup on Windows found [here](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/windows-setup.html). The quick setup option provides a pre-prepared environment with all-in-one toolchain and MSYS2. There is also information around steps to update an existing Windows environment.
+
+After setup of your environment and toolchain, you would setup ESP-IDF by following steps outlined in the Espressif documentation. Links to get the toolchain and setup path are provided below: 
+
+* Get [ESP-IDF]( https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-esp-idf) *(stable version)*
+* Setup [ESP-IDF Path](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/add-idf_path-to-profile.html#add-idf-path-to-profile-windows) for Windows
+
+To install the the ESP8266 toolchain and RTOS SDK development environment on Windows using MSYS2 environment, please follow these steps:
+* Get [ESP8266 toolchain for Windows](https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/get-started/windows-setup.html)
+* Get [ESP8266 RTOS SDK and Setup Path](https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/get-started/index.html#get-esp8266-rtos-sdk)
+
+**Linux**
+
+To install the stable version of the ESP32 toolchain and ESP-IDF development environment on Linux, please follow the setup steps outlined in the Espressif documentation. The links for these steps are provided below.
+
+* Get [ESP32 toolchain for Linux](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/linux-setup.html).
+* Get [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-esp-idf)
+* Setup [ESP-IDF Path](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/add-idf_path-to-profile.html#add-idf-path-to-profile-linux-macos)
+
+To install the the ESP8266 toolchain and RTOS SDK development environment on Linux, please follow these steps:
+
+* Get [ESP8266 toolchain for Linux](https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/get-started/linux-setup.html)
+* Get [ESP8266 RTOS SDK and Setup Path](https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/get-started/index.html#get-esp8266-rtos-sdk)
+  
+**Mac OS**
+
+To install the stable version of the ESP32 toolchain and ESP-IDF development environment on Mac OS, please follow the setup steps outlined in the Espressif documentation. The links for these steps are provided below.
+
+* Get [ESP32 toolchain for Mac OS](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/macos-setup.html).
+* Get [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-esp-idf)
+* Setup [ESP-IDF Path](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/add-idf_path-to-profile.html#add-idf-path-to-profile-linux-macos)
+
+To install the the ESP8266 toolchain and RTOS SDK development environment on Mac OS, please follow these steps:
+
+* Get [ESP8266 toolchain for Mac OS](https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/get-started/macos-setup.html)
+* Get [ESP8266 RTOS SDK and Setup Path](https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/get-started/index.html#get-esp8266-rtos-sdk)
+
+## Setup the samples
+
+Prior to running any of the samples within this repo, please ensure that you have an active Azure IoT Hub and setup the ESP-IDF development environment. Please see **[Prerequisites](#prerequisites)** section for more information.
+
+   1. Clone this repository in your working directory.
+
+        For example if you use WSL:
+
+        1. Launch WSL (type WSL in the start menu).
+        1. Once started, navigate to the mounted partition (this way you can see all the files with the Windows file explorer): ```cd /mnt/c``` (or any other directory under C)
+        1. Then clone this repository:
+        ```git clone https://github.com/Azure-Samples/ESP-Samples.git```
+
+   1. Copy the Azure component [esp-azure or esp-azure-pnp](https://github.com/Azure-Samples/ESP-Samples/tree/master/components) into the components folder of the sample you want to build.
+   1. Navigate to the project folder *(within the repo samples folder)* for the sample you want to use and follow the instructions in that project's readme file.
+
+> Tip: For using Azure IoT SDK in your existing projects, just copy/clone the esp-azure or esp-azure-pnp folder in your components folder. That's it. You're ready to build!
 
 ## Key concepts
 
-Provide users with more context on the tools and services used in the sample. Explain some of the code that is being used and how services interact with each other.
+### Azure IoT
+
+If you are new to [Azure IoT](https://azure.microsoft.com/en-us/overview/iot/), it is good to understand the services available for working with hardware like Espressif and Azure IoT. Some of the key services for Azure IoT are:
+
+* [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/)
+* [Azure IoT Central](https://azure.microsoft.com/en-us/services/iot-central/) 
+
+The Azure IoT service used in for the samples in repo is **Azure IoT Hub**. To learn how to setup an Azure IoT Hub and add devices, please follow the steps outlined in the Azure IoT documentation for creating an Azure IoT Hub. Links are provided below: 
+
+* [Creating an IoT Hub with Azure Portal](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal)
+* [Creating an IoT Hub with Azure CLI](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-using-cli)
+
+To add your device, go to "IoT devices" within your IoT Hub in the Azure portal. Click New and fill the form this way:
+
+![ESP32 sample](https://github.com/Azure-Samples/ESP-Samples/blob/master/media/adddevice.JPG)
+
+For more information on working with devices with Azure IoT, checkout the information noted in the documentation [here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-get-started-physical).
+
+### Espressif IoT
+
+There are various development frameworks available for working with ESP devices. The samples in this repo use the **Espressif IoT Development Framework** otherwise known as **ESP-IDF**. 
+
+In using the ESP-IDF framework, it is recommended to utilize the ESP-IDF build system folder structure which has the concept of using “components”. Components to be used in your project, like Azure IoT, should be placed within the appropriate project folder with makefile and/or CMakelists files at of that root folder. Project code is then typically placed in the main folder.  ESP-IDF projects have the components used and the project code built and statically linked at the same time. Learn more about the ESP-IDF build system and starting ESP projects from scratch in the Espressif documentation for the [ESP-IDF build system](https://docs.espressif.com/projects/esp-idf/en/v3.3/api-guides/build-system.html).
+
+> To use Azure IoT in your own custom project, you can use the [empty project template](https://github.com/espressif/esp-iot-solution/tree/master/examples/empty_project) provided by Espressif. Once your folder structure is set up, copy the desired Azure IoT component into your components folder. The components provided in this repo are: [azure-esp-sdk](./components/esp-azure) and [esp-azure-pnp](./components/esp-azure-pnp) *(Plug and Play)*
 
 ## Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+This project welcomes contributions and suggestions. Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+the rights to use your contribution. For details, visit <https://cla.opensource.microsoft.com>.
 
 When you submit a pull request, a CLA bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions

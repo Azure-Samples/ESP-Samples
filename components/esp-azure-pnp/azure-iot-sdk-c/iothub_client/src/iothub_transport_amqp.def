@@ -1,0 +1,6 @@
+LIBRARY iothub_client_dll
+EXPORTS
+	AMQP_Protocol
+	AMQP_Protocol_over_WebSocketsTls
+
+    AMQP_STREAMING_CLIENT_STATEStrings

@@ -1,0 +1,191 @@
+{
+  "@id": "urn:pebj:interfaces:esp32AzureKit:1",
+  "@type": "Interface",
+  "displayName": {
+    "en": "esp32AzureKit"
+  },
+  "contents": [
+    {
+      "@type": "Command",
+      "request": {
+        "@type": "SchemaField",
+        "name": "echocommandrequest",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "@type": "SchemaField",
+              "displayName": {
+                "en": "Send message to device"
+              },
+              "name": "displayedValue",
+              "schema": "string"
+            }
+          ]
+        }
+      },
+      "response": {
+        "@type": "SchemaField",
+        "name": "echocommandresponse",
+        "schema": "string"
+      },
+      "displayName": {
+        "en": "Message"
+      },
+      "name": "echo"
+    },
+    {
+      "@type": "Telemetry",
+      "description": {
+        "en": "Current Pitch on the device"
+      },
+      "displayName": {
+        "en": "Pitch"
+      },
+      "name": "pitch",
+      "schema": "long"
+    },
+    {
+      "@type": "Telemetry",
+      "description": {
+        "en": "Current Roll on the device"
+      },
+      "displayName": {
+        "en": "Roll"
+      },
+      "name": "roll",
+      "schema": "long"
+    },
+    {
+      "@type": "Telemetry",
+      "description": {
+        "en": "Current Pressure on the device"
+      },
+      "displayName": {
+        "en": "Pressure"
+      },
+      "name": "pressure",
+      "schema": "double"
+    },
+    {
+      "@type": "Telemetry",
+      "description": {
+        "en": "Current Altitude on the device"
+      },
+      "displayName": {
+        "en": "Altitude"
+      },
+      "name": "altitude",
+      "schema": "double"
+    },
+    {
+      "@type": "Telemetry",
+      "description": {
+        "en": "Current MagnetometerX on the device"
+      },
+      "displayName": {
+        "en": "MagnetometerX"
+      },
+      "name": "MagnetX",
+      "schema": "long"
+    },
+    {
+      "@type": "Telemetry",
+      "description": {
+        "en": "Current MagnetometerX on the device"
+      },
+      "displayName": {
+        "en": "MagnetometerY"
+      },
+      "name": "MagnetY",
+      "schema": "long"
+    },
+    {
+      "@type": "Telemetry",
+      "description": {
+        "en": "Current MagnetometerZ on the device"
+      },
+      "displayName": {
+        "en": "MagnetometerZ"
+      },
+      "name": "MagnetZ",
+      "schema": "long"
+    },
+    {
+      "@type": "Command",
+      
+      "displayName": {
+        "en": "Start Fan"
+      },
+      "name": "startFan"
+    },
+    {
+      "@type": "Command",
+      
+      "displayName": {
+        "en": "Stop Fan"
+      },
+      "name": "stopFan"
+    },
+    {
+      "@type": "Property",
+      "displayName": {
+        "en": "Fan Speed"
+      },
+      "name": "fanSpeed",
+      "writable": true,
+      "schema": "double"
+    },
+    {
+      "@type": "Property",
+      "displayName": {
+        "en": "Temperature Threshold"
+      },
+      "name": "tempThreshold",
+      "writable": true,
+      "schema": "double"
+    },
+    {
+      "@type": "Telemetry",
+      "description": {
+        "en": "Current temperature on the device"
+      },
+      "displayName": {
+        "en": "Temperature"
+      },
+      "name": "temp",
+      "displayUnit": {
+        "en": "celsius"
+      },
+      "schema": "double"
+    },
+    {
+      "@type": "Telemetry",
+      "description": {
+        "en": "Current humidity on the device"
+      },
+      "displayName": {
+        "en": "Humidity"
+      },
+      "name": "humid",
+      "displayUnit": {
+        "en": "percent"
+      },
+      "schema": "double"
+    },
+    {
+      "@type": "Telemetry",
+      "description": {
+        "en": "Current AmbientLight on the device"
+      },
+      "displayName": {
+        "en": "AmbientLight"
+      },
+      "name": "light",
+      "schema": "double"
+    }
+  ],
+  "@context": [
+    "http://azureiot.com/v1/contexts/IoTModel.json"
+  ]
+}
