@@ -1,8 +1,6 @@
 # Posture sensor project
 
-This sample use an ESP board to control your back position.
-The solution use a flex sensor to detect when the user is slouching. The device then start vibrate to alert the user and log an event to Azure Iot Hub.
-The device is configurable through Azure IoT Hub.
+This sample uses an ESP board to create an Azure Internet of Things wearable posture sensor device. The device measures strain with a flex sensor and sends data to Azure IoT Hub about a user's posture, vibrating when the user begins to slouch. The device is also configurable through Azure IoT Hub. 
 
 ![Sarah's project](https://github.com/Azure-Samples/ESP-Samples/blob/master/media/sarah_project.JPG)
 
