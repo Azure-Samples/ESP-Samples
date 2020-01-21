@@ -6,6 +6,8 @@ This sample uses an ESP board to create an Azure Internet of Things wearable pos
 
 See the electric [schematic of the project](./PostureSensorSchematicLabeled.pdf).
 
+For any questions or suggestions, please open an issue and tag Sarah Rashid,@sarahrashid
+
 ## Contents
 
 The sample folder structure respects the structure specified by Espressif for ESP-IDF code project. See [more information about ESP-IDF build system](https://docs.espressif.com/projects/esp-idf/en/v3.3/api-guides/build-system.html).
