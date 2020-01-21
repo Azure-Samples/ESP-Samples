@@ -8,7 +8,7 @@ products:
 - azure-sdks
 name: "Azure IoT ESP Samples"
 description: "Azure IoT code samples to use with ESP boards"
-urlFragment: "Azure IoT ESP Samples"
+urlFragment: "ESP-Samples"
 ---
 
 # Samples for Espressif (ESP) Microcontrollers
