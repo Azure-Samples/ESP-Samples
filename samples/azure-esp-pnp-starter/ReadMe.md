@@ -3,7 +3,7 @@
 In this tutorial, we will use the [ESP32 Azure IoT board](https://www.espressif.com/en/products/hardware/esp32-azure-kit/resources) to send data to Azure IoT Hub with Azure IoT plug and play. This sample will:
 
 1. Connect the ESP32 Azure Kit to Azure IoT Hub.
-1. Register interfaces via Azure IoT Plug and Play (using Azure ESP Plug and Play Port for Azure's C SDK). (Note: Eric.M to edit this, pointing to the right components directory to copy here.)
+1. Register interfaces via Azure IoT Plug and Play (using Azure ESP Plug and Play Port for Azure's C SDK). 
 1. Send Telemetry data for all onboard sensors + Min free heap size.
 1. Report properties and response to property update requests from the cloud.
 1. Respond to commands from the cloud.
