@@ -1,4 +1,4 @@
-# Setup script for ESP32
+# Setup script for ESP devices
 
 This folder contains two scripts to run in WSL (Windows Subsystem for Linux).
 The esp-setup.sh script will install the toolchain and tools needed to compile project for ESP board (to run once at the initial setup).
