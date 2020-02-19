@@ -20,7 +20,7 @@ In this repository, you will find:
 1. Azure IoT SDK component for the ESP stable version located in the `components` folder. These components can be used in any ESP project which desires to connect to Azure IoT.
  Two versions of the component are provided within this repository:
 	* Azure IoT SDK without PnP 
-	* Azure IoT SDK with PnP preview)
+	* Azure IoT SDK with PnP (preview)
 >If you are a beginner with Azure IoT or Espressif boards, please look at the **[Key Concepts](#key-concepts)** section below.
 
 In addition to the current ESP32 and ESP8266 hardware offerings, Espressif now offers the [ESP32 Azure IoT Board](https://www.espressif.com/en/products/hardware/esp32-azure-kit), a development board that includes key sensors, OLED screen, and support for Wi-Fi & Bluetooth protocols. More information about this Azure certified board is available in the [Azure IoT catalog](https://catalog.azureiotsolutions.com/details?title=AzureKit-ESP32&source=all-devices-page).
