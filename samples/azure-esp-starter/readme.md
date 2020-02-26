@@ -52,7 +52,7 @@ Go to the components directory
 `cd components`
 
 Copy the esp-azure component into the samples component directory:
-`cp -r ../../../components/esp-azure`
+`cp -r ../../../components/esp-azure .`
 
 Verify that the esp-azure component was successfully copied into the sample component directory:
 `ls -l`
