@@ -1,5 +1,9 @@
 # Azure IoT Plug and Play Sample for ESP micro controller
 
+**7/29/2020 : This sample is deprecated and will not run with the latest [PnP Preview Refresh](https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play).
+This code will be updated soon!**
+
+
 In this tutorial, we will use the [ESP32 Azure IoT board](https://www.espressif.com/en/products/hardware/esp32-azure-kit/resources) to send data to Azure IoT Hub with Azure IoT plug and play. This sample will:
 
 1. Connect the ESP32 Azure Kit to Azure IoT Hub.
