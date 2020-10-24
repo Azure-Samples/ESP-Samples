@@ -13,6 +13,10 @@ urlFragment: "ESP-Samples"
 
 # Samples for Espressif (ESP) Microcontrollers
 
+**This version of PnP sample is now deprecated and will be updated son.**
+
+To see the latest PnP (Plug and Play) convention visit the [PnP documentation](https://docs.microsoft.com/en-us/azure/iot-pnp/)
+
 ### Introduction
 In this repository, you will find:
 
