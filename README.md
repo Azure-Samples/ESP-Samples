@@ -1,15 +1,14 @@
----
-page_type: sample
-languages: 
-- c
-products:
-- azure-iot
-- azure-iot-hub
-- azure-sdks
-name: "Azure IoT ESP Samples"
-description: "Azure IoT code samples to use with ESP boards"
-urlFragment: "ESP-Samples"
----
+> ### Stop! Before you proceed:
+>
+> _This Get Started Guide is an **older version** and it is neither maintained nor supported anymore._
+>
+> _It is kept here for **reference only** and should not be used for any new development._
+>
+> _If you’re looking for a Get Started guide to the Espressif ESP32 there are two alternatives available:_
+>
+> 1. _[Azure IoT SDK for C](https://github.com/Azure/azure-sdk-for-c-arduino/blob/main/examples/Azure_IoT_Hub_ESP32/readme.md) which uses a bare metal approach (no RTOS) and support for Arduino IDE._
+> 2. _[Azure IoT middleware for FreeRTOS](https://github.com/Azure-Samples/iot-middleware-freertos-samples) which uses ESP-IDF._
+<br>
 
 # Samples for Espressif (ESP) Microcontrollers
 
